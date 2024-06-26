@@ -125,13 +125,13 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    'Error',
+                    'You are not allow to enter manual task',
                     style: TextStyle(
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                   ),
                   duration: const Duration(milliseconds: 4000),
-                  backgroundColor: FlutterFlowTheme.of(context).error,
+                  backgroundColor: FlutterFlowTheme.of(context).error1,
                 ),
               );
             }
