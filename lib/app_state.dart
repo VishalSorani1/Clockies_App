@@ -53,6 +53,9 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _sectionList;
     });
+    _safeInit(() {
+      _Status = prefs.getStringList('ff_Status') ?? _Status;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -259,6 +262,41 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInMemberList(int index, ProjectMemberModelStruct value) {
     memberList.insert(index, value);
+  }
+
+  List<String> _Status = ['archive', 'active', 'complete'];
+  List<String> get Status => _Status;
+  set Status(List<String> value) {
+    _Status = value;
+    prefs.setStringList('ff_Status', value);
+  }
+
+  void addToStatus(String value) {
+    Status.add(value);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void removeFromStatus(String value) {
+    Status.remove(value);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void removeAtIndexFromStatus(int index) {
+    Status.removeAt(index);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void updateStatusAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    Status[index] = updateFn(_Status[index]);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void insertAtIndexInStatus(int index, String value) {
+    Status.insert(index, value);
+    prefs.setStringList('ff_Status', _Status);
   }
 }
 

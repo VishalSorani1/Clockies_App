@@ -211,6 +211,7 @@ class ProjectDetailScreenModel
           backgroundColor: FlutterFlowTheme.of(context).error1,
         ),
       );
+      context.safePop();
     }
   }
 }

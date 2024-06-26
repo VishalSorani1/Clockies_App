@@ -1,4 +1,3 @@
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -415,9 +414,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                     _model
                                                         .projectDetail?.status,
                                               ),
-                                              options: Status.values
-                                                  .map((e) => e.name)
-                                                  .toList(),
+                                              options: FFAppState().Status,
                                               onChanged: (val) async {
                                                 setState(() => _model
                                                     .statusDropDownValue = val);
