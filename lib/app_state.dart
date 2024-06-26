@@ -231,6 +231,35 @@ class FFAppState extends ChangeNotifier {
   void updateProjectDetailStruct(Function(ProjectModelStruct) updateFn) {
     updateFn(_projectDetail);
   }
+
+  List<ProjectMemberModelStruct> _memberList = [];
+  List<ProjectMemberModelStruct> get memberList => _memberList;
+  set memberList(List<ProjectMemberModelStruct> value) {
+    _memberList = value;
+  }
+
+  void addToMemberList(ProjectMemberModelStruct value) {
+    memberList.add(value);
+  }
+
+  void removeFromMemberList(ProjectMemberModelStruct value) {
+    memberList.remove(value);
+  }
+
+  void removeAtIndexFromMemberList(int index) {
+    memberList.removeAt(index);
+  }
+
+  void updateMemberListAtIndex(
+    int index,
+    ProjectMemberModelStruct Function(ProjectMemberModelStruct) updateFn,
+  ) {
+    memberList[index] = updateFn(_memberList[index]);
+  }
+
+  void insertAtIndexInMemberList(int index, ProjectMemberModelStruct value) {
+    memberList.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

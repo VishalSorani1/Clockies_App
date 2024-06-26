@@ -323,6 +323,11 @@ class FetchProjectByIDCall {
         response,
         r'''$.data''',
       );
+  static List? projectMembers(dynamic response) => getJsonField(
+        response,
+        r'''$.data.projectmember''',
+        true,
+      ) as List?;
 }
 
 class FetchMyTasksCall {

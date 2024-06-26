@@ -112,6 +112,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'MyTaskScreen')
               : const MyTaskScreenWidget(),
+        ),
+        FFRoute(
+          name: 'AddTaskScreen',
+          path: '/addTaskScreen',
+          builder: (context, params) => AddTaskScreenWidget(
+            id: params.getParam(
+              'id',
+              ParamType.int,
+            ),
+            projectName: params.getParam(
+              'projectName',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

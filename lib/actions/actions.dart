@@ -105,6 +105,14 @@ Future fetchProjectById(
         ProjectModelStruct.maybeFromMap(FetchProjectByIDCall.projectDetail(
       (fetchProjectApiResult.jsonBody ?? ''),
     ))!;
+    FFAppState().memberList = FetchProjectByIDCall.projectMembers(
+      (fetchProjectApiResult.jsonBody ?? ''),
+    )!
+        .map((e) => ProjectMemberModelStruct.maybeFromMap(e))
+        .withoutNulls
+        .toList()
+        .toList()
+        .cast<ProjectMemberModelStruct>();
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
