@@ -90,7 +90,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
         TextEditingController(text: _model.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
 
-    _model.totalHourseTextFieldTextController ??= TextEditingController();
+    _model.totalHourseTextFieldTextController ??=
+        TextEditingController(text: _model.projectDetail?.totalHrs.toString());
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
 
@@ -319,7 +320,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               controller: _model
                                                       .clientDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                      null),
+                                                _model.clientDropDownValue ??=
+                                                    _model.projectDetail
+                                                        ?.clients.clientName,
+                                              ),
                                               options: FFAppState()
                                                   .clientData
                                                   .map((e) => e.clientName)
@@ -407,7 +411,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               controller: _model
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                      null),
+                                                _model.statusDropDownValue ??=
+                                                    _model
+                                                        .projectDetail?.status,
+                                              ),
                                               options: Status.values
                                                   .map((e) => e.name)
                                                   .toList(),

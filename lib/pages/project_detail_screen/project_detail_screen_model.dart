@@ -106,12 +106,13 @@ class ProjectDetailScreenModel
     );
 
     if ((updateProjectApiResult.succeeded ?? true)) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             'updated',
             style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
           ),
           duration: const Duration(milliseconds: 4000),
@@ -119,6 +120,7 @@ class ProjectDetailScreenModel
         ),
       );
     } else {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -127,11 +129,11 @@ class ProjectDetailScreenModel
               r'''$.message''',
             ).toString().toString(),
             style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
           ),
           duration: const Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
+          backgroundColor: FlutterFlowTheme.of(context).error1,
         ),
       );
     }
