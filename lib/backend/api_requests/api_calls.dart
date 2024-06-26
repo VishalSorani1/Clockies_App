@@ -458,6 +458,58 @@ class FetchSectionCall {
           .toList();
 }
 
+class AddNewTaskCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? taskName = '',
+    int? userId,
+    int? sectionId,
+    String? endDate = '',
+    String? startDate = '',
+    String? description = '',
+    String? status = '',
+    String? taskType = '',
+    int? plannedHours,
+    int? projectId,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "taskName": "$taskName",
+  "userId": $userId,
+  "sectionId": $sectionId,
+  "endDate": "$endDate",
+  "startDate": "$startDate",
+  "description": "$description",
+  "status": "$status",
+  "taskType": "$taskType",
+  "plannedHours": $plannedHours,
+  "projectId": $projectId
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Add New Task',
+      apiUrl: 'http://3.144.249.140:5000/api/task/add',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic taskData(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

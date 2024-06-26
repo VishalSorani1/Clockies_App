@@ -37,6 +37,30 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
       setState(() {});
       _model.isLoading = false;
       setState(() {});
+      await Future.wait([
+        Future(() async {
+          await action_blocks.fetchSections(
+            context,
+            id: _model.myTaskList
+                .where((e) =>
+                    e.projects.projectName == _model.projectListDropDownValue)
+                .toList()
+                .first
+                .projectId,
+          );
+        }),
+        Future(() async {
+          await action_blocks.fetchProjectById(
+            context,
+            id: _model.myTaskList
+                .where((e) =>
+                    e.projects.projectName == _model.projectListDropDownValue)
+                .toList()
+                .first
+                .projectId,
+          );
+        }),
+      ]);
     });
   }
 
@@ -70,33 +94,6 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                         .allowManualTask ==
                     true) ||
                 (FFAppState().user.userRoleId == 1)) {
-              await Future.wait([
-                Future(() async {
-                  await action_blocks.fetchSections(
-                    context,
-                    id: _model.myTaskList
-                        .where((e) =>
-                            e.projects.projectName ==
-                            _model.projectListDropDownValue)
-                        .toList()
-                        .first
-                        .projectId,
-                  );
-                }),
-                Future(() async {
-                  await action_blocks.fetchProjectById(
-                    context,
-                    id: _model.myTaskList
-                        .where((e) =>
-                            e.projects.projectName ==
-                            _model.projectListDropDownValue)
-                        .toList()
-                        .first
-                        .projectId,
-                  );
-                }),
-              ]);
-
               context.pushNamed(
                 'AddTaskScreen',
                 queryParameters: {
@@ -238,8 +235,38 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                         .unique((e) => e.projects.projectName)
                                         .map((e) => e.projects.projectName)
                                         .toList(),
-                                    onChanged: (val) => setState(() =>
-                                        _model.projectListDropDownValue = val),
+                                    onChanged: (val) async {
+                                      setState(() => _model
+                                          .projectListDropDownValue = val);
+                                      await Future.wait([
+                                        Future(() async {
+                                          await action_blocks.fetchSections(
+                                            context,
+                                            id: _model.myTaskList
+                                                .where((e) =>
+                                                    e.projects.projectName ==
+                                                    _model
+                                                        .projectListDropDownValue)
+                                                .toList()
+                                                .first
+                                                .projectId,
+                                          );
+                                        }),
+                                        Future(() async {
+                                          await action_blocks.fetchProjectById(
+                                            context,
+                                            id: _model.myTaskList
+                                                .where((e) =>
+                                                    e.projects.projectName ==
+                                                    _model
+                                                        .projectListDropDownValue)
+                                                .toList()
+                                                .first
+                                                .projectId,
+                                          );
+                                        }),
+                                      ]);
+                                    },
                                     width: 300.0,
                                     height: 48.0,
                                     textStyle: FlutterFlowTheme.of(context)

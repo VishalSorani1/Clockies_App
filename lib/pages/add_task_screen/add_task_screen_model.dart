@@ -21,6 +21,10 @@ class AddTaskScreenModel extends FlutterFlowModel<AddTaskScreenWidget> {
   void updateMyTaskListAtIndex(int index, Function(TaskModelStruct) updateFn) =>
       myTaskList[index] = updateFn(myTaskList[index]);
 
+  bool sectionState = false;
+
+  bool assignState = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -37,7 +41,7 @@ class AddTaskScreenModel extends FlutterFlowModel<AddTaskScreenWidget> {
     }
 
     if (val.length < 5) {
-      return 'Please enter a task name with at least 5characters';
+      return 'Please enter a task name with at least 5 characters';
     }
 
     return null;
@@ -75,16 +79,29 @@ class AddTaskScreenModel extends FlutterFlowModel<AddTaskScreenWidget> {
   TextEditingController? startDateTextFieldTextController;
   String? Function(BuildContext, String?)?
       startDateTextFieldTextControllerValidator;
+  String? _startDateTextFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
+  DateTime? datePicked1;
   // State field(s) for EndDateTextField widget.
   FocusNode? endDateTextFieldFocusNode;
   TextEditingController? endDateTextFieldTextController;
   String? Function(BuildContext, String?)?
       endDateTextFieldTextControllerValidator;
+  DateTime? datePicked2;
 
   @override
   void initState(BuildContext context) {
     taskNameTextFieldTextControllerValidator =
         _taskNameTextFieldTextControllerValidator;
+    startDateTextFieldTextControllerValidator =
+        _startDateTextFieldTextControllerValidator;
   }
 
   @override
