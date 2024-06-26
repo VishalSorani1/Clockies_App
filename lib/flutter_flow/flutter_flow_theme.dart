@@ -191,107 +191,107 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter';
+  String get displayLargeFamily => 'Jost';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Inter';
+  String get displayMediumFamily => 'Jost';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Inter';
+  String get displaySmallFamily => 'Jost';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Inter';
+  String get headlineLargeFamily => 'Jost';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Inter';
+  String get headlineMediumFamily => 'Jost';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Inter';
+  String get headlineSmallFamily => 'Jost';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Inter';
+  String get titleLargeFamily => 'Jost';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Inter';
+  String get titleMediumFamily => 'Jost';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 20.0,
       );
-  String get titleSmallFamily => 'Inter';
+  String get titleSmallFamily => 'Jost';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Inter';
+  String get labelLargeFamily => 'Jost';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Inter';
+  String get labelMediumFamily => 'Jost';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Inter';
+  String get labelSmallFamily => 'Jost';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Inter';
+  String get bodyLargeFamily => 'Jost';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Inter';
+  String get bodyMediumFamily => 'Jost';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Inter';
+  String get bodySmallFamily => 'Jost';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Inter',
+        'Jost',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

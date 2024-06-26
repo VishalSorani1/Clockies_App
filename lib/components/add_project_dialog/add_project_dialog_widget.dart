@@ -85,7 +85,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Jost',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -186,7 +186,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Jost',
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor: FlutterFlowTheme.of(context).blueColor,
@@ -208,7 +208,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                           height: 56.0,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Select Client',
@@ -258,7 +258,7 @@ class _AddProjectDialogWidgetState extends State<AddProjectDialogWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(

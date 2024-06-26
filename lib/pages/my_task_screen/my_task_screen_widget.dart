@@ -121,6 +121,9 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                   ),
                 }.withoutNulls,
               );
+
+              await _model.fetchMyTask(context);
+              setState(() {});
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -211,7 +214,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Jost',
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -272,7 +275,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Jost',
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -308,7 +311,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                           _model.projectListDropDownValue!,
                           style:
                               FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),

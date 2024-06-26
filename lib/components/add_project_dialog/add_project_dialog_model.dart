@@ -100,7 +100,7 @@ class AddProjectDialogModel extends FlutterFlowModel<AddProjectDialogWidget> {
               r'''$.message''',
             ).toString().toString(),
             style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: 'Inter',
+                  fontFamily: 'Jost',
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   fontSize: 16.0,
                   letterSpacing: 0.0,
@@ -121,7 +121,7 @@ class AddProjectDialogModel extends FlutterFlowModel<AddProjectDialogWidget> {
               r'''$.message''',
             ).toString().toString(),
             style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: 'Inter',
+                  fontFamily: 'Jost',
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   fontSize: 16.0,
                   letterSpacing: 0.0,

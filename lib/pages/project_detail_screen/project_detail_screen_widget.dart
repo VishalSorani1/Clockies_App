@@ -89,7 +89,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
     _model.descriptionTextFieldTextController ??=
         TextEditingController(text: _model.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
-    _model.descriptionTextFieldFocusNode!.addListener(() => setState(() {}));
+
     _model.totalHourseTextFieldTextController ??= TextEditingController();
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
@@ -167,7 +167,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -184,8 +184,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                     _model.descriptionTextFieldTextController,
                                 focusNode: _model.descriptionTextFieldFocusNode,
                                 onFieldSubmitted: (_) async {
-                                  await Future.delayed(
-                                      const Duration(milliseconds: 100));
                                   await _model.updateProjectDetail(context);
                                   setState(() {});
                                 },
@@ -251,7 +249,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Jost',
                                       color: FlutterFlowTheme.of(context)
                                           .textGreyColor,
                                       letterSpacing: 0.0,
@@ -273,7 +271,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -306,7 +304,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Jost',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .textGreyColor,
@@ -343,7 +341,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -394,7 +392,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Jost',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .textGreyColor,
@@ -430,7 +428,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -481,7 +479,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       context)
                                                   .titleMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Jost',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .textGreyColor,
@@ -527,7 +525,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Jost',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder:
@@ -660,7 +658,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -750,7 +748,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -847,7 +845,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Jost',
                                         color: Colors.white,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,

@@ -137,7 +137,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Jost',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
@@ -190,7 +190,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -223,7 +223,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               context)
                                                           .titleMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                           ),

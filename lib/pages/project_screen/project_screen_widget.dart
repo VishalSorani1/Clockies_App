@@ -199,7 +199,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -299,7 +299,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -322,7 +322,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -345,7 +345,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -368,7 +368,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -557,7 +557,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -580,7 +580,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -603,7 +603,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -626,7 +626,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -815,7 +815,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -838,7 +838,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -861,7 +861,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
@@ -884,7 +884,7 @@ class _ProjectScreenWidgetState extends State<ProjectScreenWidget>
                                                               .of(context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,

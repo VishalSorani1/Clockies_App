@@ -152,7 +152,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Jost',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
@@ -258,7 +258,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Jost',
                                     color: const Color(0xFFC4CDD5),
                                     letterSpacing: 0.0,
                                   ),

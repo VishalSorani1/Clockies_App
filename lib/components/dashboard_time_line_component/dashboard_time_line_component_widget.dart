@@ -173,7 +173,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Jost',
                             color: FlutterFlowTheme.of(context).dashboardText1,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -212,7 +212,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Jost',
                             color: FlutterFlowTheme.of(context).dashboardText2,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -251,7 +251,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Jost',
                             color: FlutterFlowTheme.of(context).dashboardText3,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
@@ -290,7 +290,7 @@ class _DashboardTimeLineComponentWidgetState
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
                           .override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Jost',
                             color: FlutterFlowTheme.of(context).dashboardText4,
                             fontSize: 20.0,
                             letterSpacing: 0.0,

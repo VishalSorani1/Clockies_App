@@ -167,7 +167,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                           context)
                                                       .titleLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -222,12 +222,6 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     .taskNameTextFieldTextController,
                                                 focusNode: _model
                                                     .taskNameTextFieldFocusNode,
-                                                onChanged: (_) =>
-                                                    EasyDebounce.debounce(
-                                                  '_model.taskNameTextFieldTextController',
-                                                  const Duration(milliseconds: 100),
-                                                  () => setState(() {}),
-                                                ),
                                                 autofocus: false,
                                                 textCapitalization:
                                                     TextCapitalization.none,
@@ -311,7 +305,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Jost',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -330,12 +324,6 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     .descriptionTextFieldTextController,
                                                 focusNode: _model
                                                     .descriptionTextFieldFocusNode,
-                                                onChanged: (_) =>
-                                                    EasyDebounce.debounce(
-                                                  '_model.descriptionTextFieldTextController',
-                                                  const Duration(milliseconds: 100),
-                                                  () => setState(() {}),
-                                                ),
                                                 autofocus: false,
                                                 textCapitalization:
                                                     TextCapitalization.none,
@@ -419,7 +407,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Jost',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -438,17 +426,11 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     .projectTextFieldTextController,
                                                 focusNode: _model
                                                     .projectTextFieldFocusNode,
-                                                onChanged: (_) =>
-                                                    EasyDebounce.debounce(
-                                                  '_model.projectTextFieldTextController',
-                                                  const Duration(milliseconds: 100),
-                                                  () => setState(() {}),
-                                                ),
                                                 autofocus: false,
                                                 textCapitalization:
                                                     TextCapitalization.none,
                                                 textInputAction:
-                                                    TextInputAction.next,
+                                                    TextInputAction.done,
                                                 readOnly: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -533,7 +515,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Jost',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -562,7 +544,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Section',
@@ -606,7 +588,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Task Type',
@@ -650,7 +632,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Status',
@@ -706,7 +688,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Jost',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Assign To',
@@ -747,17 +729,11 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     .plannedHoursTextFieldTextController,
                                                 focusNode: _model
                                                     .plannedHoursTextFieldFocusNode,
-                                                onChanged: (_) =>
-                                                    EasyDebounce.debounce(
-                                                  '_model.plannedHoursTextFieldTextController',
-                                                  const Duration(milliseconds: 100),
-                                                  () => setState(() {}),
-                                                ),
                                                 autofocus: false,
                                                 textCapitalization:
                                                     TextCapitalization.none,
                                                 textInputAction:
-                                                    TextInputAction.next,
+                                                    TextInputAction.done,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelText:
@@ -775,7 +751,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                               context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily: 'Jost',
                                                             letterSpacing: 0.0,
                                                           ),
                                                   enabledBorder:
@@ -865,13 +841,6 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                           .startDateTextFieldTextController,
                                                       focusNode: _model
                                                           .startDateTextFieldFocusNode,
-                                                      onChanged: (_) =>
-                                                          EasyDebounce.debounce(
-                                                        '_model.startDateTextFieldTextController',
-                                                        const Duration(
-                                                            milliseconds: 100),
-                                                        () => setState(() {}),
-                                                      ),
                                                       autofocus: false,
                                                       textCapitalization:
                                                           TextCapitalization
@@ -882,6 +851,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
+                                                        isDense: false,
                                                         labelText:
                                                             FFAppConstants
                                                                 .startDate,
@@ -903,7 +873,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                 .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Jost',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1027,7 +997,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                   .headlineLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Jost',
                                                                     fontSize:
                                                                         32.0,
                                                                     letterSpacing:
@@ -1151,7 +1121,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                 .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Jost',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1275,7 +1245,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                   .headlineLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Jost',
                                                                     fontSize:
                                                                         32.0,
                                                                     letterSpacing:
@@ -1469,7 +1439,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               text: FFAppConstants.addTaskBtn,
                                               options: FFButtonOptions(
                                                 width: double.infinity,
-                                                height: 40.0,
+                                                height: 44.0,
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
