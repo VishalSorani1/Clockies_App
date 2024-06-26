@@ -94,27 +94,22 @@ Future fetchProjectById(
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text(
-          'true',
+          'true project api',
           style: TextStyle(),
         ),
         duration: const Duration(milliseconds: 4000),
         backgroundColor: FlutterFlowTheme.of(context).secondary,
       ),
     );
-    FFAppState().projectDetail = (FetchProjectByIDCall.projectDetail(
+    FFAppState().projectDetail =
+        ProjectModelStruct.maybeFromMap(FetchProjectByIDCall.projectDetail(
       (fetchProjectApiResult.jsonBody ?? ''),
-    )!
-            .toList()
-            .map<ProjectModelStruct?>(ProjectModelStruct.maybeFromMap)
-            .toList() as Iterable<ProjectModelStruct?>)
-        .withoutNulls
-        .toList()
-        .cast<ProjectModelStruct>();
+    ))!;
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text(
-          'false',
+          'false project api',
           style: TextStyle(),
         ),
         duration: const Duration(milliseconds: 4000),
