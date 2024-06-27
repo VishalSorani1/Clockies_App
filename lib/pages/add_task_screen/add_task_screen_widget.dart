@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -19,10 +20,14 @@ class AddTaskScreenWidget extends StatefulWidget {
     super.key,
     required this.id,
     required this.projectName,
+    required this.isEdit,
+    this.taskDetail,
   });
 
   final int? id;
   final String? projectName;
+  final bool? isEdit;
+  final TaskModelStruct? taskDetail;
 
   @override
   State<AddTaskScreenWidget> createState() => _AddTaskScreenWidgetState();
@@ -46,23 +51,36 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
       setState(() {});
     });
 
-    _model.taskNameTextFieldTextController ??= TextEditingController();
+    _model.taskNameTextFieldTextController ??= TextEditingController(
+        text: widget.isEdit! ? widget.taskDetail?.taskName : null);
     _model.taskNameTextFieldFocusNode ??= FocusNode();
 
-    _model.descriptionTextFieldTextController ??= TextEditingController();
+    _model.descriptionTextFieldTextController ??= TextEditingController(
+        text: widget.isEdit!
+            ? functions.removeHtmlTagsFromString(widget.taskDetail?.description)
+            : null);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
 
     _model.projectTextFieldTextController ??=
         TextEditingController(text: widget.projectName);
     _model.projectTextFieldFocusNode ??= FocusNode();
 
-    _model.plannedHoursTextFieldTextController ??= TextEditingController();
+    _model.plannedHoursTextFieldTextController ??= TextEditingController(
+        text: widget.isEdit!
+            ? widget.taskDetail?.plannedHours.toString()
+            : null);
     _model.plannedHoursTextFieldFocusNode ??= FocusNode();
 
-    _model.startDateTextFieldTextController ??= TextEditingController();
+    _model.startDateTextFieldTextController ??= TextEditingController(
+        text: widget.isEdit!
+            ? functions.formateDateString(widget.taskDetail?.startDate)
+            : null);
     _model.startDateTextFieldFocusNode ??= FocusNode();
 
-    _model.endDateTextFieldTextController ??= TextEditingController();
+    _model.endDateTextFieldTextController ??= TextEditingController(
+        text: widget.isEdit!
+            ? functions.formateDateString(widget.taskDetail?.endDate)
+            : null);
     _model.endDateTextFieldFocusNode ??= FocusNode();
   }
 
@@ -102,7 +120,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
             },
           ),
           title: Text(
-            FFAppConstants.addTask,
+            widget.isEdit! ? FFAppConstants.editTask : FFAppConstants.addTask,
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   fontFamily: 'Inter',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -530,7 +548,20 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               controller: _model
                                                       .sectionDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                      null),
+                                                _model.sectionDropDownValue ??=
+                                                    widget.isEdit!
+                                                        ? FFAppState()
+                                                            .sectionList
+                                                            .where((e) =>
+                                                                e.id ==
+                                                                widget
+                                                                    .taskDetail
+                                                                    ?.sectionId)
+                                                            .toList()
+                                                            .first
+                                                            .name
+                                                        : null,
+                                              ),
                                               options: FFAppState()
                                                   .sectionList
                                                   .map((e) => e.name)
@@ -577,7 +608,19 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               controller: _model
                                                       .taskTypeDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                      null),
+                                                _model.taskTypeDropDownValue ??=
+                                                    widget.isEdit!
+                                                        ? FFAppState()
+                                                            .TaskType
+                                                            .where((e) =>
+                                                                e ==
+                                                                widget
+                                                                    .taskDetail
+                                                                    ?.taskType)
+                                                            .toList()
+                                                            .first
+                                                        : null,
+                                              ),
                                               options: FFAppState().TaskType,
                                               onChanged: (val) => setState(() =>
                                                   _model.taskTypeDropDownValue =
@@ -621,7 +664,19 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               controller: _model
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                      null),
+                                                _model.statusDropDownValue ??=
+                                                    widget.isEdit!
+                                                        ? FFAppState()
+                                                            .TaskStatus
+                                                            .where((e) =>
+                                                                e ==
+                                                                widget
+                                                                    .taskDetail
+                                                                    ?.status)
+                                                            .toList()
+                                                            .first
+                                                        : null,
+                                              ),
                                               options: FFAppState().TaskStatus,
                                               onChanged: (val) => setState(() =>
                                                   _model.statusDropDownValue =
@@ -665,15 +720,26 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               controller: _model
                                                       .assignToDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                _model.assignToDropDownValue ??=
-                                                    FFAppState()
+                                                _model
+                                                    .assignToDropDownValue ??= widget
+                                                        .isEdit!
+                                                    ? (FFAppState()
                                                                 .user
                                                                 .userRoleId !=
                                                             1
                                                         ? FFAppState()
+                                                            .memberList
+                                                            .where((e) =>
+                                                                e.userId ==
+                                                                widget
+                                                                    .taskDetail
+                                                                    ?.userId)
+                                                            .toList()
+                                                            .first
                                                             .user
                                                             .userName
-                                                        : null,
+                                                        : 'null')
+                                                    : 'null',
                                               ),
                                               options: FFAppState()
                                                   .memberList
@@ -1436,7 +1502,9 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   return;
                                                 }
                                               },
-                                              text: FFAppConstants.addTaskBtn,
+                                              text: widget.isEdit!
+                                                  ? FFAppConstants.updateTask
+                                                  : FFAppConstants.addTaskBtn,
                                               options: FFButtonOptions(
                                                 width: double.infinity,
                                                 height: 44.0,

@@ -125,6 +125,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'projectName',
               ParamType.String,
             ),
+            isEdit: params.getParam(
+              'isEdit',
+              ParamType.bool,
+            ),
+            taskDetail: params.getParam(
+              'taskDetail',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: TaskModelStruct.fromSerializableMap,
+            ),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

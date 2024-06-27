@@ -119,6 +119,10 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                         .projectName,
                     ParamType.String,
                   ),
+                  'isEdit': serializeParam(
+                    false,
+                    ParamType.bool,
+                  ),
                 }.withoutNulls,
               );
 
@@ -344,10 +348,39 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                   const SizedBox(height: 8.0),
                               itemBuilder: (context, myTaskIndex) {
                                 final myTaskItem = myTask[myTaskIndex];
-                                return TaskTileWidget(
-                                  key: Key(
-                                      'Key4bk_${myTaskIndex}_of_${myTask.length}'),
-                                  myTaskDetail: myTaskItem,
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'AddTaskScreen',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          myTaskItem.projectId,
+                                          ParamType.int,
+                                        ),
+                                        'projectName': serializeParam(
+                                          myTaskItem.projects.projectName,
+                                          ParamType.String,
+                                        ),
+                                        'isEdit': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                        'taskDetail': serializeParam(
+                                          myTaskItem,
+                                          ParamType.DataStruct,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: TaskTileWidget(
+                                    key: Key(
+                                        'Key4bk_${myTaskIndex}_of_${myTask.length}'),
+                                    myTaskDetail: myTaskItem,
+                                  ),
                                 );
                               },
                             );
