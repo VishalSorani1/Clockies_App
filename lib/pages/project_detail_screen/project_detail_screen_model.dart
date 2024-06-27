@@ -212,6 +212,7 @@ class ProjectDetailScreenModel
         ),
       );
       context.safePop();
+      return;
     }
   }
 }

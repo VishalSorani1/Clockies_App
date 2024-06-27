@@ -89,8 +89,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
         TextEditingController(text: _model.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
 
-    _model.totalHourseTextFieldTextController ??=
-        TextEditingController(text: _model.projectDetail?.totalHrs.toString());
+    _model.totalHourseTextFieldTextController ??= TextEditingController();
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
 
@@ -319,10 +318,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               controller: _model
                                                       .clientDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                _model.clientDropDownValue ??=
-                                                    _model.projectDetail
-                                                        ?.clients.clientName,
-                                              ),
+                                                      null),
                                               options: FFAppState()
                                                   .clientData
                                                   .map((e) => e.clientName)
@@ -410,10 +406,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               controller: _model
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                _model.statusDropDownValue ??=
-                                                    _model
-                                                        .projectDetail?.status,
-                                              ),
+                                                      null),
                                               options: FFAppState().Status,
                                               onChanged: (val) async {
                                                 setState(() => _model
