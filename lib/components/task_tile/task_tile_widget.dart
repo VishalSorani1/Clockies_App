@@ -59,7 +59,8 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.myTaskDetail!.taskName,
+                  widget.myTaskDetail!.taskName
+                      .maybeHandleOverflow(maxChars: 26),
                   maxLines: 2,
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Inter',
@@ -91,12 +92,13 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.myTaskDetail!.user.userName,
+                  widget.myTaskDetail!.user.userName
+                      .maybeHandleOverflow(maxChars: 26),
                   maxLines: 2,
                   style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).textGreyColor,
-                        fontSize: 14.0,
+                        fontSize: 12.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
                       ),

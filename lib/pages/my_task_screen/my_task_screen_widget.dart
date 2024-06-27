@@ -35,6 +35,8 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
       setState(() {});
       await _model.fetchMyTask(context);
       setState(() {});
+      _model.isLoading = false;
+      setState(() {});
       await Future.wait([
         Future(() async {
           await action_blocks.fetchSections(
@@ -46,6 +48,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                 .first
                 .projectId,
           );
+          setState(() {});
         }),
         Future(() async {
           await action_blocks.fetchProjectById(
@@ -57,10 +60,9 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                 .first
                 .projectId,
           );
+          setState(() {});
         }),
       ]);
-      _model.isLoading = false;
-      setState(() {});
     });
   }
 
