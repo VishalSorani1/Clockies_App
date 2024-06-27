@@ -218,7 +218,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: 'Jost',
+                                        fontFamily: 'Inter',
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -279,7 +279,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Jost',
+                                          fontFamily: 'Inter',
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -315,7 +315,7 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                           _model.projectListDropDownValue!,
                           style:
                               FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),

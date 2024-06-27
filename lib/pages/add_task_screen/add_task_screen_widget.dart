@@ -185,7 +185,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                           context)
                                                       .titleLarge
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -249,14 +249,14 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                 decoration: InputDecoration(
                                                   labelText:
                                                       FFAppConstants.taskName,
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium
@@ -323,7 +323,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Jost',
+                                                          fontFamily: 'Inter',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -351,14 +351,14 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                 decoration: InputDecoration(
                                                   labelText: FFAppConstants
                                                       .description,
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium
@@ -425,7 +425,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Jost',
+                                                          fontFamily: 'Inter',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -454,14 +454,14 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                 decoration: InputDecoration(
                                                   labelText: FFAppConstants
                                                       .projectName,
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
                                                       .labelMedium
@@ -533,7 +533,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Jost',
+                                                          fontFamily: 'Inter',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 cursorColor:
@@ -575,7 +575,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Section',
@@ -631,7 +631,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Task Type',
@@ -687,7 +687,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Status',
@@ -774,7 +774,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'Assign To',
@@ -824,20 +824,20 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                 decoration: InputDecoration(
                                                   labelText:
                                                       FFAppConstants.planned,
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily: 'Jost',
+                                                            fontFamily: 'Inter',
                                                             letterSpacing: 0.0,
                                                           ),
                                                   enabledBorder:
@@ -897,10 +897,9 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
+                                                        .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 16.0,
+                                                          fontFamily: 'Inter',
                                                           letterSpacing: 0.0,
                                                         ),
                                                 keyboardType:
@@ -948,12 +947,10 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Roboto',
-                                                                  fontSize:
-                                                                      16.0,
+                                                                      'Inter',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -963,7 +960,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                 .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Jost',
+                                                                      'Inter',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1029,11 +1026,9 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyMedium
+                                                          .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            fontSize: 16.0,
+                                                            fontFamily: 'Inter',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       cursorColor:
@@ -1087,7 +1082,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                   .headlineLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Jost',
+                                                                        'Inter',
                                                                     fontSize:
                                                                         32.0,
                                                                     letterSpacing:
@@ -1196,12 +1191,10 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Roboto',
-                                                                  fontSize:
-                                                                      16.0,
+                                                                      'Inter',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1211,7 +1204,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                 .titleSmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Jost',
+                                                                      'Inter',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1277,11 +1270,9 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyMedium
+                                                          .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            fontSize: 16.0,
+                                                            fontFamily: 'Inter',
                                                             letterSpacing: 0.0,
                                                           ),
                                                       cursorColor:
@@ -1335,7 +1326,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                                   .headlineLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Jost',
+                                                                        'Inter',
                                                                     fontSize:
                                                                         32.0,
                                                                     letterSpacing:
@@ -1591,11 +1582,11 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: Colors.white,
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: const BorderSide(

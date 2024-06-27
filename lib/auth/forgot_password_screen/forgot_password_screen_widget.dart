@@ -146,7 +146,7 @@ class _ForgotPasswordScreenWidgetState
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFC4CDD5),
                                     letterSpacing: 0.0,
                                   ),

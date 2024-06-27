@@ -137,7 +137,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .override(
-                                                  fontFamily: 'Jost',
+                                                  fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
@@ -161,7 +161,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .blueColor,
-                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -190,7 +189,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Jost',
+                                                        fontFamily: 'Inter',
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -223,7 +222,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               context)
                                                           .titleMedium
                                                           .override(
-                                                            fontFamily: 'Jost',
+                                                            fontFamily: 'Inter',
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                           ),

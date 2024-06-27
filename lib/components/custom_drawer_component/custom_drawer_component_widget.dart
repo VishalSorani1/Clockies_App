@@ -99,7 +99,7 @@ class _CustomDrawerComponentWidgetState
                   title: Text(
                     FFAppConstants.dashboard,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
-                          fontFamily: 'Jost',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 16.0,
                           letterSpacing: 0.0,
@@ -119,7 +119,7 @@ class _CustomDrawerComponentWidgetState
                 title: Text(
                   FFAppConstants.myTask,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Jost',
+                        fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -138,7 +138,7 @@ class _CustomDrawerComponentWidgetState
                 title: Text(
                   FFAppConstants.timeLine,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Jost',
+                        fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -165,7 +165,7 @@ class _CustomDrawerComponentWidgetState
                   title: Text(
                     FFAppConstants.projects,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
-                          fontFamily: 'Jost',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 16.0,
                           letterSpacing: 0.0,
@@ -198,7 +198,7 @@ class _CustomDrawerComponentWidgetState
                   title: Text(
                     FFAppConstants.logout,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
-                          fontFamily: 'Jost',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 16.0,
                           letterSpacing: 0.0,

@@ -105,7 +105,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .override(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -205,7 +205,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor: FlutterFlowTheme.of(context).blueColor,
@@ -278,7 +278,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor: FlutterFlowTheme.of(context).blueColor,
@@ -354,7 +354,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Jost',
+                                  fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
                             cursorColor: FlutterFlowTheme.of(context).blueColor,
@@ -376,7 +376,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                           height: 56.0,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Section',
@@ -408,7 +408,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                           height: 56.0,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Task Type',
@@ -440,7 +440,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                           height: 56.0,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Status',
@@ -472,7 +472,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                           height: 56.0,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                           hintText: 'Assign To',
@@ -522,7 +522,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -597,7 +597,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -676,7 +676,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Jost',
+                                    fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
                               enabledBorder: OutlineInputBorder(

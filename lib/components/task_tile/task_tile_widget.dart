@@ -58,7 +58,7 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
                 widget.myTaskDetail!.taskName,
                 maxLines: 2,
                 style: FlutterFlowTheme.of(context).titleMedium.override(
-                      fontFamily: 'Jost',
+                      fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).textGreyColor,
                       fontSize: 14.0,
                       letterSpacing: 0.0,
