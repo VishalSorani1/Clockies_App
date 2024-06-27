@@ -184,7 +184,8 @@ Future updateTask(
   updateTaskApiResult = await UpdateTaskCall.call(
     authToken: FFAppState().userToken,
     taskName: taskDetail?.taskName,
-    parentTaskId: taskDetail?.parentTaskId,
+    parentTaskId:
+        taskDetail?.parentTaskId,
     taskType: taskDetail?.taskType,
     userId: taskDetail?.userId,
     sectionId: taskDetail?.sectionId,
