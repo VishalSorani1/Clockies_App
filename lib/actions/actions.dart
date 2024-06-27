@@ -174,3 +174,61 @@ Future createNewTask(
     );
   }
 }
+
+Future updateTask(
+  BuildContext context, {
+  required TaskModelStruct? taskDetail,
+}) async {
+  ApiCallResponse? updateTaskApiResult;
+
+  updateTaskApiResult = await UpdateTaskCall.call(
+    authToken: FFAppState().userToken,
+    taskName: taskDetail?.taskName,
+    parentTaskId: taskDetail?.parentTaskId,
+    taskType: taskDetail?.taskType,
+    userId: taskDetail?.userId,
+    sectionId: taskDetail?.sectionId,
+    startDate: taskDetail?.startDate,
+    endDate: taskDetail?.endDate,
+    description: taskDetail?.description,
+    status: taskDetail?.status,
+    plannedHours: taskDetail?.plannedHours,
+    projectId: taskDetail?.projectId,
+    id: taskDetail?.id,
+  );
+
+  if ((updateTaskApiResult.succeeded ?? true)) {
+    context.safePop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (newTaskApiResult?.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).success1,
+      ),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (newTaskApiResult?.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).error1,
+      ),
+    );
+  }
+}

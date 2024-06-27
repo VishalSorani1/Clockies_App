@@ -720,26 +720,34 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                               controller: _model
                                                       .assignToDropDownValueController ??=
                                                   FormFieldController<String>(
-                                                _model
-                                                    .assignToDropDownValue ??= widget
-                                                        .isEdit!
-                                                    ? (FFAppState()
+                                                _model.assignToDropDownValue ??=
+                                                    FFAppState()
                                                                 .user
                                                                 .userRoleId !=
                                                             1
-                                                        ? FFAppState()
-                                                            .memberList
-                                                            .where((e) =>
-                                                                e.userId ==
-                                                                widget
-                                                                    .taskDetail
-                                                                    ?.userId)
-                                                            .toList()
-                                                            .first
-                                                            .user
-                                                            .userName
-                                                        : 'null')
-                                                    : 'null',
+                                                        ? (widget.isEdit!
+                                                            ? FFAppState()
+                                                                .memberList
+                                                                .where((e) =>
+                                                                    e.userId ==
+                                                                    widget
+                                                                        .taskDetail
+                                                                        ?.userId)
+                                                                .toList()
+                                                                .first
+                                                                .user
+                                                                .userName
+                                                            : FFAppState()
+                                                                .memberList
+                                                                .where((e) =>
+                                                                    e.user
+                                                                        .userName ==
+                                                                    '')
+                                                                .toList()
+                                                                .first
+                                                                .user
+                                                                .userName)
+                                                        : 'null',
                                               ),
                                               options: FFAppState()
                                                   .memberList
@@ -895,6 +903,10 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Expanded(
                                                   child: Padding(
@@ -1130,7 +1142,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .textGreyColor,
-                                                    size: 32.0,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ].divide(const SizedBox(width: 12.0)),
@@ -1378,7 +1390,7 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .textGreyColor,
-                                                    size: 32.0,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ].divide(const SizedBox(width: 12.0)),
@@ -1409,53 +1421,103 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
                                                             .validate()) {
                                                       return;
                                                     }
-                                                    await action_blocks
-                                                        .createNewTask(
-                                                      context,
-                                                      taskDetail:
-                                                          TaskModelStruct(
-                                                        taskName: _model
-                                                            .taskNameTextFieldTextController
-                                                            .text,
-                                                        startDate: _model
-                                                            .startDateTextFieldTextController
-                                                            .text,
-                                                        endDate: _model
-                                                            .endDateTextFieldTextController
-                                                            .text,
-                                                        description: _model
-                                                            .descriptionTextFieldTextController
-                                                            .text,
-                                                        status: _model
-                                                            .statusDropDownValue,
-                                                        plannedHours:
-                                                            int.tryParse(_model
-                                                                .plannedHoursTextFieldTextController
-                                                                .text),
-                                                        taskType: _model
-                                                            .taskTypeDropDownValue,
-                                                        sectionId: FFAppState()
-                                                            .sectionList
-                                                            .where((e) =>
-                                                                e.name ==
-                                                                _model
-                                                                    .sectionDropDownValue)
-                                                            .toList()
-                                                            .first
-                                                            .id,
-                                                        projectId: widget.id,
-                                                        userId: FFAppState()
-                                                            .memberList
-                                                            .where((e) =>
-                                                                e.user
-                                                                    .userName ==
-                                                                _model
-                                                                    .assignToDropDownValue)
-                                                            .toList()
-                                                            .first
-                                                            .userId,
-                                                      ),
-                                                    );
+                                                    if (widget.isEdit!) {
+                                                      await action_blocks
+                                                          .updateTask(
+                                                        context,
+                                                        taskDetail:
+                                                            TaskModelStruct(
+                                                          taskName: _model
+                                                              .taskNameTextFieldTextController
+                                                              .text,
+                                                          startDate: _model
+                                                              .startDateTextFieldTextController
+                                                              .text,
+                                                          endDate: _model
+                                                              .endDateTextFieldTextController
+                                                              .text,
+                                                          description: _model
+                                                              .descriptionTextFieldTextController
+                                                              .text,
+                                                          status: _model
+                                                              .statusDropDownValue,
+                                                          plannedHours: int
+                                                              .tryParse(_model
+                                                                  .plannedHoursTextFieldTextController
+                                                                  .text),
+                                                          taskType: _model
+                                                              .taskTypeDropDownValue,
+                                                          sectionId: FFAppState()
+                                                              .sectionList
+                                                              .where((e) =>
+                                                                  e.name ==
+                                                                  _model
+                                                                      .sectionDropDownValue)
+                                                              .toList()
+                                                              .first
+                                                              .id,
+                                                          projectId: widget.id,
+                                                          userId: FFAppState()
+                                                              .memberList
+                                                              .where((e) =>
+                                                                  e.user
+                                                                      .userName ==
+                                                                  _model
+                                                                      .assignToDropDownValue)
+                                                              .toList()
+                                                              .first
+                                                              .userId,
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      await action_blocks
+                                                          .createNewTask(
+                                                        context,
+                                                        taskDetail:
+                                                            TaskModelStruct(
+                                                          taskName: _model
+                                                              .taskNameTextFieldTextController
+                                                              .text,
+                                                          startDate: _model
+                                                              .startDateTextFieldTextController
+                                                              .text,
+                                                          endDate: _model
+                                                              .endDateTextFieldTextController
+                                                              .text,
+                                                          description: _model
+                                                              .descriptionTextFieldTextController
+                                                              .text,
+                                                          status: _model
+                                                              .statusDropDownValue,
+                                                          plannedHours: int
+                                                              .tryParse(_model
+                                                                  .plannedHoursTextFieldTextController
+                                                                  .text),
+                                                          taskType: _model
+                                                              .taskTypeDropDownValue,
+                                                          sectionId: FFAppState()
+                                                              .sectionList
+                                                              .where((e) =>
+                                                                  e.name ==
+                                                                  _model
+                                                                      .sectionDropDownValue)
+                                                              .toList()
+                                                              .first
+                                                              .id,
+                                                          projectId: widget.id,
+                                                          userId: FFAppState()
+                                                              .memberList
+                                                              .where((e) =>
+                                                                  e.user
+                                                                      .userName ==
+                                                                  _model
+                                                                      .assignToDropDownValue)
+                                                              .toList()
+                                                              .first
+                                                              .userId,
+                                                        ),
+                                                      );
+                                                    }
                                                   } else {
                                                     ScaffoldMessenger.of(
                                                             context)
