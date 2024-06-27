@@ -39,7 +39,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
       _model.isLoading = true;
       setState(() {});
       await _model.fetchProjectById(context);
-      setState(() {});
       await Future.wait([
         Future(() async {
           setState(() {
@@ -75,14 +74,13 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
         }),
       ]);
       _model.isLoading = false;
-      setState(() {});
       if (FFAppState().user.userRoleId == 1) {
         _model.hasProjectEditRole = true;
-        setState(() {});
       } else {
         _model.hasProjectEditRole = false;
-        setState(() {});
       }
+
+      setState(() {});
     });
 
     _model.descriptionTextFieldTextController ??=
