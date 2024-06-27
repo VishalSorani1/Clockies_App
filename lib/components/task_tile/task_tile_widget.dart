@@ -52,33 +52,37 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  child: Text(
-                    widget.myTaskDetail!.taskName,
-                    maxLines: 2,
-                    style: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).textGreyColor,
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                ),
                 Text(
-                  widget.myTaskDetail!.status,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  widget.myTaskDetail!.taskName,
+                  maxLines: 2,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).blueColor,
-                        fontSize: 12.0,
+                        color: FlutterFlowTheme.of(context).textGreyColor,
+                        fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
                       ),
+                ),
+                Flexible(
+                  child: Align(
+                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    child: Text(
+                      widget.myTaskDetail!.status,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).blueColor,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ),
                 ),
               ].divide(const SizedBox(width: 12.0)),
             ),
@@ -86,31 +90,35 @@ class _TaskTileWidgetState extends State<TaskTileWidget> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  child: Text(
-                    widget.myTaskDetail!.user.userName,
-                    maxLines: 2,
-                    style: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).textGreyColor,
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                ),
                 Text(
-                  valueOrDefault<String>(
-                    functions.formateDateString(widget.myTaskDetail?.startDate),
-                    '-',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  widget.myTaskDetail!.user.userName,
+                  maxLines: 2,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).blueColor,
-                        fontSize: 12.0,
+                        color: FlutterFlowTheme.of(context).textGreyColor,
+                        fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
                       ),
+                ),
+                Flexible(
+                  child: Align(
+                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    child: Text(
+                      valueOrDefault<String>(
+                        functions
+                            .formateDateString(widget.myTaskDetail?.startDate),
+                        '-',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).blueColor,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ),
                 ),
               ].divide(const SizedBox(width: 12.0)),
             ),
