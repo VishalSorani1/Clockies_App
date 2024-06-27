@@ -155,7 +155,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
           top: true,
           child: Builder(
             builder: (context) {
-              if (!_model.isLoading) {
+              if ((_model.isLoading == false) &&
+                  (_model.projectDetail != null)) {
                 return Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),

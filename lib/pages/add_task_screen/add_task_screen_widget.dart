@@ -47,6 +47,20 @@ class _AddTaskScreenWidgetState extends State<AddTaskScreenWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isLoading = true;
       setState(() {});
+      await Future.wait([
+        Future(() async {
+          await action_blocks.fetchSections(
+            context,
+            id: widget.taskDetail?.projectId,
+          );
+        }),
+        Future(() async {
+          await action_blocks.fetchProjectById(
+            context,
+            id: widget.taskDetail?.projectId,
+          );
+        }),
+      ]);
       _model.isLoading = false;
       setState(() {});
     });
