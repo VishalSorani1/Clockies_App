@@ -1,4 +1,3 @@
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -40,7 +39,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
       _model.isLoading = true;
       setState(() {});
       await _model.fetchProjectById(context);
-      setState(() {});
       await Future.wait([
         Future(() async {
           setState(() {
@@ -64,32 +62,39 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
         }),
         Future(() async {
           setState(() {
-            _model.clientDropDownValueController?.value =
-                _model.projectDetail!.clients.clientName;
+            _model.clientDropDownValueController?.value = FFAppState()
+                .clientData
+                .where((e) =>
+                    e.clientName == _model.projectDetail?.clients.clientName)
+                .toList()
+                .first
+                .clientName;
           });
         }),
         Future(() async {
           setState(() {
-            _model.statusDropDownValueController?.value =
-                _model.projectDetail!.status;
+            _model.statusDropDownValueController?.value = FFAppState()
+                .Status
+                .where((e) => e == _model.projectDetail?.status)
+                .toList()
+                .first;
           });
         }),
       ]);
       _model.isLoading = false;
-      setState(() {});
       if (FFAppState().user.userRoleId == 1) {
         _model.hasProjectEditRole = true;
-        setState(() {});
       } else {
         _model.hasProjectEditRole = false;
-        setState(() {});
       }
+
+      setState(() {});
     });
 
     _model.descriptionTextFieldTextController ??=
         TextEditingController(text: _model.projectDetail?.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
-    _model.descriptionTextFieldFocusNode!.addListener(() => setState(() {}));
+
     _model.totalHourseTextFieldTextController ??= TextEditingController();
     _model.totalHourseTextFieldFocusNode ??= FocusNode();
   }
@@ -137,6 +142,7 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -149,7 +155,8 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
           top: true,
           child: Builder(
             builder: (context) {
-              if (!_model.isLoading) {
+              if ((_model.isLoading == false) &&
+                  (_model.projectDetail != null)) {
                 return Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
@@ -184,8 +191,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                     _model.descriptionTextFieldTextController,
                                 focusNode: _model.descriptionTextFieldFocusNode,
                                 onFieldSubmitted: (_) async {
-                                  await Future.delayed(
-                                      const Duration(milliseconds: 100));
                                   await _model.updateProjectDetail(context);
                                   setState(() {});
                                 },
@@ -329,9 +334,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               onChanged: (val) async {
                                                 setState(() => _model
                                                     .clientDropDownValue = val);
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 100));
                                                 await _model
                                                     .updateProjectDetail(
                                                         context);
@@ -410,15 +412,10 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                       .statusDropDownValueController ??=
                                                   FormFieldController<String>(
                                                       null),
-                                              options: Status.values
-                                                  .map((e) => e.name)
-                                                  .toList(),
+                                              options: FFAppState().Status,
                                               onChanged: (val) async {
                                                 setState(() => _model
                                                     .statusDropDownValue = val);
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 100));
                                                 await _model
                                                     .updateProjectDetail(
                                                         context);
@@ -498,9 +495,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                               focusNode: _model
                                                   .totalHourseTextFieldFocusNode,
                                               onFieldSubmitted: (_) async {
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 100));
                                                 await _model
                                                     .updateProjectDetail(
                                                         context);
@@ -635,10 +629,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                                     .excessHoursValue =
                                                                 newValue!);
                                                             if (newValue!) {
-                                                              await Future.delayed(
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          100));
                                                               await _model
                                                                   .updateProjectDetail(
                                                                       context);
@@ -725,10 +715,6 @@ class _ProjectDetailScreenWidgetState extends State<ProjectDetailScreenWidget> {
                                                                     .taskEntryValue =
                                                                 newValue!);
                                                             if (newValue!) {
-                                                              await Future.delayed(
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          100));
                                                               await _model
                                                                   .updateProjectDetail(
                                                                       context);

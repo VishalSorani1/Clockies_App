@@ -53,6 +53,9 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _sectionList;
     });
+    _safeInit(() {
+      _Status = prefs.getStringList('ff_Status') ?? _Status;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -222,33 +225,78 @@ class FFAppState extends ChangeNotifier {
         'ff_sectionList', _sectionList.map((x) => x.serialize()).toList());
   }
 
-  List<ProjectModelStruct> _projectDetail = [];
-  List<ProjectModelStruct> get projectDetail => _projectDetail;
-  set projectDetail(List<ProjectModelStruct> value) {
+  ProjectModelStruct _projectDetail = ProjectModelStruct();
+  ProjectModelStruct get projectDetail => _projectDetail;
+  set projectDetail(ProjectModelStruct value) {
     _projectDetail = value;
   }
 
-  void addToProjectDetail(ProjectModelStruct value) {
-    projectDetail.add(value);
+  void updateProjectDetailStruct(Function(ProjectModelStruct) updateFn) {
+    updateFn(_projectDetail);
   }
 
-  void removeFromProjectDetail(ProjectModelStruct value) {
-    projectDetail.remove(value);
+  List<ProjectMemberModelStruct> _memberList = [];
+  List<ProjectMemberModelStruct> get memberList => _memberList;
+  set memberList(List<ProjectMemberModelStruct> value) {
+    _memberList = value;
   }
 
-  void removeAtIndexFromProjectDetail(int index) {
-    projectDetail.removeAt(index);
+  void addToMemberList(ProjectMemberModelStruct value) {
+    memberList.add(value);
   }
 
-  void updateProjectDetailAtIndex(
+  void removeFromMemberList(ProjectMemberModelStruct value) {
+    memberList.remove(value);
+  }
+
+  void removeAtIndexFromMemberList(int index) {
+    memberList.removeAt(index);
+  }
+
+  void updateMemberListAtIndex(
     int index,
-    ProjectModelStruct Function(ProjectModelStruct) updateFn,
+    ProjectMemberModelStruct Function(ProjectMemberModelStruct) updateFn,
   ) {
-    projectDetail[index] = updateFn(_projectDetail[index]);
+    memberList[index] = updateFn(_memberList[index]);
   }
 
-  void insertAtIndexInProjectDetail(int index, ProjectModelStruct value) {
-    projectDetail.insert(index, value);
+  void insertAtIndexInMemberList(int index, ProjectMemberModelStruct value) {
+    memberList.insert(index, value);
+  }
+
+  List<String> _Status = ['archive', 'active', 'complete'];
+  List<String> get Status => _Status;
+  set Status(List<String> value) {
+    _Status = value;
+    prefs.setStringList('ff_Status', value);
+  }
+
+  void addToStatus(String value) {
+    Status.add(value);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void removeFromStatus(String value) {
+    Status.remove(value);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void removeAtIndexFromStatus(int index) {
+    Status.removeAt(index);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void updateStatusAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    Status[index] = updateFn(_Status[index]);
+    prefs.setStringList('ff_Status', _Status);
+  }
+
+  void insertAtIndexInStatus(int index, String value) {
+    Status.insert(index, value);
+    prefs.setStringList('ff_Status', _Status);
   }
 }
 

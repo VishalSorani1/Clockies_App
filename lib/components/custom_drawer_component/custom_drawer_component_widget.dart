@@ -88,7 +88,9 @@ class _CustomDrawerComponentWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('HomePage');
+                  Navigator.pop(context);
+
+                  context.goNamed('HomePage');
                 },
                 child: ListTile(
                   leading: FaIcon(
@@ -110,43 +112,35 @@ class _CustomDrawerComponentWidgetState
                   contentPadding: const EdgeInsets.all(0.0),
                 ),
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.task,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  Navigator.pop(context);
+
+                  context.goNamed('MyTaskScreen');
+                },
+                child: ListTile(
+                  leading: Icon(
+                    Icons.task,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 24.0,
+                  ),
+                  title: Text(
+                    FFAppConstants.myTask,
+                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                          fontFamily: 'Inter',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 16.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                  tileColor: FlutterFlowTheme.of(context).tertiary,
+                  dense: false,
+                  contentPadding: const EdgeInsets.all(0.0),
                 ),
-                title: Text(
-                  FFAppConstants.myTask,
-                  style: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                tileColor: FlutterFlowTheme.of(context).tertiary,
-                dense: false,
-                contentPadding: const EdgeInsets.all(0.0),
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.timeline_rounded,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
-                ),
-                title: Text(
-                  FFAppConstants.timeLine,
-                  style: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                tileColor: FlutterFlowTheme.of(context).tertiary,
-                dense: false,
-                contentPadding: const EdgeInsets.all(0.0),
               ),
               InkWell(
                 splashColor: Colors.transparent,
@@ -154,6 +148,8 @@ class _CustomDrawerComponentWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  Navigator.pop(context);
+
                   context.pushNamed('ProjectScreen');
                 },
                 child: ListTile(

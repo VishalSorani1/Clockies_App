@@ -465,10 +465,7 @@ class _AddTaskComponentWidgetState extends State<AddTaskComponentWidget> {
                         FlutterFlowDropDown<String>(
                           controller: _model.assignToDropDownValueController ??=
                               FormFieldController<String>(null),
-                          options: FFAppState()
-                              .clientData
-                              .map((e) => e.clientName)
-                              .toList(),
+                          options: const ['Option 1'],
                           onChanged: (val) => setState(
                               () => _model.assignToDropDownValue = val),
                           width: double.infinity,

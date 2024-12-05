@@ -323,6 +323,11 @@ class FetchProjectByIDCall {
         response,
         r'''$.data''',
       );
+  static List? projectMembers(dynamic response) => getJsonField(
+        response,
+        r'''$.data.projectmember''',
+        true,
+      ) as List?;
 }
 
 class FetchMyTasksCall {
@@ -449,6 +454,146 @@ class FetchSectionCall {
       ) as List?)
           ?.withoutNulls
           .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class AddNewTaskCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? taskName = '',
+    int? userId,
+    int? sectionId,
+    String? endDate = '',
+    String? startDate = '',
+    String? description = '',
+    String? status = '',
+    String? taskType = '',
+    int? plannedHours,
+    int? projectId,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "taskName": "$taskName",
+  "userId": $userId,
+  "sectionId": $sectionId,
+  "endDate": "$endDate",
+  "startDate": "$startDate",
+  "description": "$description",
+  "status": "$status",
+  "taskType": "$taskType",
+  "plannedHours": $plannedHours,
+  "projectId": $projectId
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Add New Task',
+      apiUrl: 'http://3.144.249.140:5000/api/task/add',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic taskData(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
+class FetchTaskByIdCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    int? id,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Fetch Task By Id',
+      apiUrl: 'http://3.144.249.140:5000/api/task/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic taskData(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+}
+
+class UpdateTaskCall {
+  static Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? taskName = '',
+    int? parentTaskId,
+    String? taskType = '',
+    int? userId,
+    int? sectionId,
+    String? startDate = '',
+    String? endDate = '',
+    String? description = '',
+    String? status = '',
+    int? plannedHours,
+    int? projectId,
+    int? id,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "taskName": "$taskName",
+  "parentTaskId": $parentTaskId,
+  "userId": $userId,
+  "sectionId": $sectionId,
+  "endDate": "$endDate",
+  "startDate": "$startDate",
+  "description": "$description",
+  "status": "$status",
+  "taskType": "$taskType",
+  "plannedHours": $plannedHours,
+  "projectId": $projectId
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Update Task ',
+      apiUrl: 'http://3.144.249.140:5000/api/task/$id',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': '$authToken',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<int>? data(dynamic response) => (getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
           .withoutNulls
           .toList();
 }

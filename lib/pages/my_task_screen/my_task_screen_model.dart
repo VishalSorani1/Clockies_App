@@ -56,18 +56,6 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
     );
 
     if ((myTaskApiResult.succeeded ?? true)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'true',
-            style: TextStyle(
-              color: FlutterFlowTheme.of(context).primaryText,
-            ),
-          ),
-          duration: const Duration(milliseconds: 4000),
-          backgroundColor: FlutterFlowTheme.of(context).secondary,
-        ),
-      );
       myTaskList = FetchMyTasksCall.myTasks(
         (myTaskApiResult.jsonBody ?? ''),
       )!
@@ -77,6 +65,7 @@ class MyTaskScreenModel extends FlutterFlowModel<MyTaskScreenWidget> {
           .toList()
           .cast<TaskModelStruct>();
     } else {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(

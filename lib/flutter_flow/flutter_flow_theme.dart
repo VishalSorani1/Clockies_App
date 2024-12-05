@@ -236,28 +236,28 @@ class ThemeTypography extends Typography {
   String get titleLargeFamily => 'Inter';
   TextStyle get titleLarge => GoogleFonts.getFont(
         'Inter',
-        color: theme.primaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Inter';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Inter',
-        color: theme.primaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.normal,
         fontSize: 20.0,
       );
   String get titleSmallFamily => 'Inter';
   TextStyle get titleSmall => GoogleFonts.getFont(
         'Inter',
-        color: theme.secondaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Inter';
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Inter',
-        color: theme.secondaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
@@ -278,14 +278,14 @@ class ThemeTypography extends Typography {
   String get bodyLargeFamily => 'Inter';
   TextStyle get bodyLarge => GoogleFonts.getFont(
         'Inter',
-        color: theme.primaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Inter';
   TextStyle get bodyMedium => GoogleFonts.getFont(
         'Inter',
-        color: theme.primaryText,
+        color: theme.textGreyColor,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );

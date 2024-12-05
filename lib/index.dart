@@ -10,3 +10,5 @@ export '/pages/project_detail_screen/project_detail_screen_widget.dart'
     show ProjectDetailScreenWidget;
 export '/pages/my_task_screen/my_task_screen_widget.dart'
     show MyTaskScreenWidget;
+export '/pages/add_task_screen/add_task_screen_widget.dart'
+    show AddTaskScreenWidget;

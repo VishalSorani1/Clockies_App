@@ -1,4 +1,3 @@
-import '/components/add_task_component/add_task_component_widget.dart';
 import '/components/custom_drawer_component/custom_drawer_component_widget.dart';
 import '/components/task_tile/task_tile_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -9,6 +8,7 @@ import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'my_task_screen_model.dart';
 export 'my_task_screen_model.dart';
 
@@ -37,6 +37,32 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
       setState(() {});
       _model.isLoading = false;
       setState(() {});
+      await Future.wait([
+        Future(() async {
+          await action_blocks.fetchSections(
+            context,
+            id: _model.myTaskList
+                .where((e) =>
+                    e.projects.projectName == _model.projectListDropDownValue)
+                .toList()
+                .first
+                .projectId,
+          );
+          setState(() {});
+        }),
+        Future(() async {
+          await action_blocks.fetchProjectById(
+            context,
+            id: _model.myTaskList
+                .where((e) =>
+                    e.projects.projectName == _model.projectListDropDownValue)
+                .toList()
+                .first
+                .projectId,
+          );
+          setState(() {});
+        }),
+      ]);
     });
   }
 
@@ -49,6 +75,8 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -58,67 +86,64 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
         backgroundColor: FlutterFlowTheme.of(context).backgroundColor,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await Future.wait([
-              Future(() async {
-                await action_blocks.fetchSections(
-                  context,
-                  id: _model.myTaskList
-                      .where((e) =>
-                          e.projects.projectName ==
-                          _model.projectListDropDownValue)
-                      .toList()
-                      .first
-                      .projectId,
-                );
-              }),
-              Future(() async {
-                await action_blocks.fetchProjectById(
-                  context,
-                  id: _model.myTaskList
-                      .where((e) =>
-                          e.projects.projectName ==
-                          _model.projectListDropDownValue)
-                      .toList()
-                      .first
-                      .projectId,
-                );
-              }),
-            ]);
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              isDismissible: false,
-              enableDrag: false,
-              context: context,
-              builder: (context) {
-                return GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: AddTaskComponentWidget(
-                      projectId: _model.myTaskList
-                          .where((e) =>
-                              e.projects.projectName ==
-                              _model.projectListDropDownValue)
-                          .toList()
-                          .first
-                          .projects
-                          .id,
-                      projectName: _model.myTaskList
-                          .where((e) =>
-                              e.projects.projectName ==
-                              _model.projectListDropDownValue)
-                          .toList()
-                          .first
-                          .projects
-                          .projectName,
+            if ((_model.myTaskList
+                        .where((e) =>
+                            e.projects.projectName ==
+                            _model.projectListDropDownValue)
+                        .toList()
+                        .first
+                        .projects
+                        .allowManualTask ==
+                    true) ||
+                (FFAppState().user.userRoleId == 1)) {
+              context.pushNamed(
+                'AddTaskScreen',
+                queryParameters: {
+                  'id': serializeParam(
+                    _model.myTaskList
+                        .where((e) =>
+                            e.projects.projectName ==
+                            _model.projectListDropDownValue)
+                        .toList()
+                        .first
+                        .projects
+                        .id,
+                    ParamType.int,
+                  ),
+                  'projectName': serializeParam(
+                    _model.myTaskList
+                        .where((e) =>
+                            e.projects.projectName ==
+                            _model.projectListDropDownValue)
+                        .toList()
+                        .first
+                        .projects
+                        .projectName,
+                    ParamType.String,
+                  ),
+                  'isEdit': serializeParam(
+                    false,
+                    ParamType.bool,
+                  ),
+                }.withoutNulls,
+              );
+
+              await _model.fetchMyTask(context);
+              setState(() {});
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'You are not allow to enter manual task',
+                    style: TextStyle(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                   ),
-                );
-              },
-            ).then((value) => safeSetState(() {}));
+                  duration: const Duration(milliseconds: 4000),
+                  backgroundColor: FlutterFlowTheme.of(context).error1,
+                ),
+              );
+            }
           },
           backgroundColor: FlutterFlowTheme.of(context).pinkColor,
           elevation: 8.0,
@@ -219,8 +244,38 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                         .unique((e) => e.projects.projectName)
                                         .map((e) => e.projects.projectName)
                                         .toList(),
-                                    onChanged: (val) => setState(() =>
-                                        _model.projectListDropDownValue = val),
+                                    onChanged: (val) async {
+                                      setState(() => _model
+                                          .projectListDropDownValue = val);
+                                      await Future.wait([
+                                        Future(() async {
+                                          await action_blocks.fetchSections(
+                                            context,
+                                            id: _model.myTaskList
+                                                .where((e) =>
+                                                    e.projects.projectName ==
+                                                    _model
+                                                        .projectListDropDownValue)
+                                                .toList()
+                                                .first
+                                                .projectId,
+                                          );
+                                        }),
+                                        Future(() async {
+                                          await action_blocks.fetchProjectById(
+                                            context,
+                                            id: _model.myTaskList
+                                                .where((e) =>
+                                                    e.projects.projectName ==
+                                                    _model
+                                                        .projectListDropDownValue)
+                                                .toList()
+                                                .first
+                                                .projectId,
+                                          );
+                                        }),
+                                      ]);
+                                    },
                                     width: 300.0,
                                     height: 48.0,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -295,10 +350,39 @@ class _MyTaskScreenWidgetState extends State<MyTaskScreenWidget> {
                                   const SizedBox(height: 8.0),
                               itemBuilder: (context, myTaskIndex) {
                                 final myTaskItem = myTask[myTaskIndex];
-                                return TaskTileWidget(
-                                  key: Key(
-                                      'Key4bk_${myTaskIndex}_of_${myTask.length}'),
-                                  myTaskDetail: myTaskItem,
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'AddTaskScreen',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          myTaskItem.projectId,
+                                          ParamType.int,
+                                        ),
+                                        'projectName': serializeParam(
+                                          myTaskItem.projects.projectName,
+                                          ParamType.String,
+                                        ),
+                                        'isEdit': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                        'taskDetail': serializeParam(
+                                          myTaskItem,
+                                          ParamType.DataStruct,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: TaskTileWidget(
+                                    key: Key(
+                                        'Key4bk_${myTaskIndex}_of_${myTask.length}'),
+                                    myTaskDetail: myTaskItem,
+                                  ),
                                 );
                               },
                             );

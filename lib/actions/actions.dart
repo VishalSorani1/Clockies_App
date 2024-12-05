@@ -47,16 +47,6 @@ Future fetchSections(
   );
 
   if ((fetchSectionApiResult.succeeded ?? true)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: const Text(
-          'true',
-          style: TextStyle(),
-        ),
-        duration: const Duration(milliseconds: 4000),
-        backgroundColor: FlutterFlowTheme.of(context).secondary,
-      ),
-    );
     FFAppState().sectionList = FetchSectionCall.sectionDetail(
       (fetchSectionApiResult.jsonBody ?? ''),
     )!
@@ -66,14 +56,20 @@ Future fetchSections(
         .toList()
         .cast<SectionModelStruct>();
   } else {
+    ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text(
-          'false',
-          style: TextStyle(),
+        content: Text(
+          getJsonField(
+            (fetchSectionApiResult.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
         ),
         duration: const Duration(milliseconds: 4000),
-        backgroundColor: FlutterFlowTheme.of(context).secondary,
+        backgroundColor: FlutterFlowTheme.of(context).error1,
       ),
     );
   }
@@ -91,34 +87,148 @@ Future fetchProjectById(
   );
 
   if ((fetchProjectApiResult.succeeded ?? true)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: const Text(
-          'true',
-          style: TextStyle(),
-        ),
-        duration: const Duration(milliseconds: 4000),
-        backgroundColor: FlutterFlowTheme.of(context).secondary,
-      ),
-    );
-    FFAppState().projectDetail = (FetchProjectByIDCall.projectDetail(
+    FFAppState().projectDetail =
+        ProjectModelStruct.maybeFromMap(FetchProjectByIDCall.projectDetail(
+      (fetchProjectApiResult.jsonBody ?? ''),
+    ))!;
+    FFAppState().memberList = FetchProjectByIDCall.projectMembers(
       (fetchProjectApiResult.jsonBody ?? ''),
     )!
-            .toList()
-            .map<ProjectModelStruct?>(ProjectModelStruct.maybeFromMap)
-            .toList() as Iterable<ProjectModelStruct?>)
+        .map((e) => ProjectMemberModelStruct.maybeFromMap(e))
         .withoutNulls
         .toList()
-        .cast<ProjectModelStruct>();
+        .toList()
+        .cast<ProjectMemberModelStruct>();
+  } else {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (fetchProjectApiResult.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).error1,
+      ),
+    );
+  }
+}
+
+Future createNewTask(
+  BuildContext context, {
+  required TaskModelStruct? taskDetail,
+}) async {
+  ApiCallResponse? newTaskApiResult;
+
+  newTaskApiResult = await AddNewTaskCall.call(
+    authToken: FFAppState().userToken,
+    taskName: taskDetail?.taskName,
+    userId: taskDetail?.userId,
+    sectionId: taskDetail?.sectionId,
+    endDate: taskDetail?.endDate,
+    startDate: taskDetail?.startDate,
+    description: taskDetail?.description,
+    status: taskDetail?.status,
+    taskType: taskDetail?.taskType,
+    plannedHours: taskDetail?.plannedHours,
+    projectId: taskDetail?.projectId,
+  );
+
+  if ((newTaskApiResult.succeeded ?? true)) {
+    context.safePop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (newTaskApiResult.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).success1,
+      ),
+    );
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text(
-          'false',
-          style: TextStyle(),
+        content: Text(
+          getJsonField(
+            (newTaskApiResult.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
         ),
         duration: const Duration(milliseconds: 4000),
-        backgroundColor: FlutterFlowTheme.of(context).secondary,
+        backgroundColor: FlutterFlowTheme.of(context).error1,
+      ),
+    );
+  }
+}
+
+Future updateTask(
+  BuildContext context, {
+  required TaskModelStruct? taskDetail,
+}) async {
+  ApiCallResponse? updateTaskApiResult;
+
+  updateTaskApiResult = await UpdateTaskCall.call(
+    authToken: FFAppState().userToken,
+    taskName: taskDetail?.taskName,
+    parentTaskId:
+        taskDetail?.parentTaskId,
+    taskType: taskDetail?.taskType,
+    userId: taskDetail?.userId,
+    sectionId: taskDetail?.sectionId,
+    startDate: taskDetail?.startDate,
+    endDate: taskDetail?.endDate,
+    description: taskDetail?.description,
+    status: taskDetail?.status,
+    plannedHours: taskDetail?.plannedHours,
+    projectId: taskDetail?.projectId,
+    id: taskDetail?.id,
+  );
+
+  if ((updateTaskApiResult.succeeded ?? true)) {
+    context.safePop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (newTaskApiResult?.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).success1,
+      ),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          getJsonField(
+            (newTaskApiResult?.jsonBody ?? ''),
+            r'''$.message''',
+          ).toString().toString(),
+          style: TextStyle(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+          ),
+        ),
+        duration: const Duration(milliseconds: 4000),
+        backgroundColor: FlutterFlowTheme.of(context).error1,
       ),
     );
   }
